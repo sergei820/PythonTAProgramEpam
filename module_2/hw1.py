@@ -24,9 +24,7 @@ def major_and_minor_elem(inp: List) -> Tuple[int, int]:
     inp_set = set(inp)
     least_common = inp[0]
     most_common = inp[0]
-    result_dict = {}
     for el in inp_set:
-        result_dict[el] = inp.count(el)
         if inp.count(el) < inp.count(least_common):
             least_common = el
         if inp.count(el) > inp.count(most_common):
