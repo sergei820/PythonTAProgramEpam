@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc66d3ee-291d-4370-b8e9-020ad19f1eef" name="Changes" comment="module 1 homework - implemented">
-      <change afterPath="$PROJECT_DIR$/.idea/PythonTAProgramEpam.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_2/hw1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_2/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_2/test_hw1.py" afterDir="false" />
+    <list default="true" id="cc66d3ee-291d-4370-b8e9-020ad19f1eef" name="Changes" comment="Module 2 HW - refactoring 2">
+      <change afterPath="$PROJECT_DIR$/module_2/hw2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_2/requirements (2).txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_2/test_hw2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +52,7 @@
       <recent name="C:\Learn\PythonTAProgramEpam\module_2" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.hw1">
+  <component name="RunManager" selected="Python.hw2">
     <configuration name="hw1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonTAProgramEpam" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -71,6 +66,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/module_2/hw1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="hw2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonTAProgramEpam" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/module_2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/module_2/hw2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -102,6 +118,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.hw2" />
         <item itemvalue="Python.hw1" />
         <item itemvalue="Python.module_1_hw" />
       </list>
@@ -123,12 +140,36 @@
       <option name="project" value="LOCAL" />
       <updated>1693985508776</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="module 2 homework - implemented">
+      <created>1694175998679</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694175998679</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Module 2 HW - refactoring 1">
+      <created>1694176061865</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694176061865</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Module 2 HW - refactoring 2">
+      <created>1694176231658</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694176231658</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="module 1 homework - implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="module 1 homework - implemented" />
+    <MESSAGE value="module 2 homework - implemented" />
+    <MESSAGE value="Module 2 HW - refactoring 1" />
+    <MESSAGE value="Module 2 HW - refactoring 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Module 2 HW - refactoring 2" />
   </component>
 </project>
