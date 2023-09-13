@@ -26,7 +26,10 @@ from typing import Dict, List
 
 def transform(legacy_data: Dict[int, List[str]]) -> Dict[str, int]:
     result_dict = {}
-    for key_value in legacy_data.items():
-        for value in key_value[1]:
-            result_dict[value.lower()] = key_value[0]
+    # for key_value in legacy_data.items():
+    #     for value in key_value[1]:
+    #         result_dict[value.lower()] = key_value[0]
+    for key, values in legacy_data.items():
+        for value in values:
+            result_dict[value.lower()] = key
     return result_dict
