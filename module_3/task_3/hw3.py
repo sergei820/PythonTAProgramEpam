@@ -36,7 +36,7 @@ def custom_range(data_source: str, *args):
         start, stop = args
         start_index = data_source.index(start)
         stop_index = data_source.index(stop)
-        return list(data_source[data_source.index(start):data_source.index(stop)])
+        return list(data_source[start_index:stop_index])
     elif len(args) == 3:
         start, stop, step = args
         start_index = data_source.index(start)

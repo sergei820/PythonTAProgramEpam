@@ -38,7 +38,7 @@ def validate_line(line: str) -> bool:
 
 
 def validate_date(date: str) -> bool:
-    date_pattern = "[0-9]{4}-[0-9]{2}-[0-9]{2}(?![a-zA-Z0-9])"
+    date_pattern = "[0-9]{4}-[0-9]{2}-[0-9]{2}$"
     return bool(re.search(date_pattern, date))
 
 
@@ -59,9 +59,9 @@ def check_data(filepath: str, validators: Iterable[Callable]) -> str:
     # valids = []
     report_path = os.getcwd() + "\\report.txt"
     print(report_path)
-    with open(filepath, "r") as filehandle:
+    with open(filepath, "r") as filehandle, open() as sad:  # write to another file
         for line in filehandle:
-            data_from_file.append(line)
+            data_from_file.append(line)  # use readlines here!!!!!!!!!!! -> validate  HERE!!!!
 
     for line_to_validate in data_from_file:
         for validator in validators:
