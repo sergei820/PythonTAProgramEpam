@@ -66,8 +66,8 @@ def check_data(filepath: str, validators: Iterable[Callable]) -> str:
                 validated_data.append(line_to_validate.replace("\n", " " + validator.__name__ + "\n"))
                 break
             # valid line
-            else:
-                valids.append(line_to_validate.replace("\n", " VALID\n"))
+            #else:
+            #    valids.append(line_to_validate.replace("\n", " VALID\n"))
 
     with open("valid.txt", "w") as file:
         for valid_line in valids:
@@ -81,5 +81,5 @@ def check_data(filepath: str, validators: Iterable[Callable]) -> str:
 
 # check_data("data.txt", [validate_date, validate_line])
 # check_data("data.txt", [validate_line])
-# os.remove(os.getcwd() + "\\report.txt")
-# os.remove("valid.txt")
+#os.remove(os.getcwd() + "\\report.txt")
+#os.remove("valid.txt")
