@@ -34,6 +34,15 @@ import re
 
 
 def validate_line(line: str) -> bool:
+    return len(line.split()) == 5
+
+
+def validate_date(date: str) -> bool:
+    date_pattern = "[0-9]{4}-[0-9]{2}-[0-9]{2}(?![a-zA-Z0-9])"
+    return bool(re.search(date_pattern, date))
+
+
+def validate_sequence_in_line(line: str) -> bool:
     email_pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
     amount_pattern = "[0-9]+(\\.[0-9]{2})?"
     currency_pattern = "[A-Z]{3}"
@@ -41,18 +50,13 @@ def validate_line(line: str) -> bool:
     date_pattern = "[0-9]{4}-[0-9]{2}-[0-9]{2}"
     patterns = [email_pattern, amount_pattern, currency_pattern, account_pattern, date_pattern]
     result_pattern = " ".join(patterns)
-    return bool(re.match(result_pattern, line)) and len(line.split()) == 5
-
-
-def validate_date(date: str) -> bool:
-    date_pattern = "[0-9]{4}-[0-9]{2}-[0-9]{2}"
-    return bool(re.search(date_pattern, date))
+    return bool(re.match(result_pattern, line))
 
 
 def check_data(filepath: str, validators: Iterable[Callable]) -> str:
     data_from_file = []
     validated_data = []
-    valids = []
+    # valids = []
     report_path = os.getcwd() + "\\report.txt"
     print(report_path)
     with open(filepath, "r") as filehandle:
@@ -69,9 +73,9 @@ def check_data(filepath: str, validators: Iterable[Callable]) -> str:
             #else:
             #    valids.append(line_to_validate.replace("\n", " VALID\n"))
 
-    with open("valid.txt", "w") as file:
-        for valid_line in valids:
-            file.write(valid_line)
+    # with open("valid.txt", "w") as file:
+    #     for valid_line in valids:
+    #         file.write(valid_line)
 
     with open(report_path, "w") as report:
         for line in validated_data:
@@ -81,5 +85,5 @@ def check_data(filepath: str, validators: Iterable[Callable]) -> str:
 
 # check_data("data.txt", [validate_date, validate_line])
 # check_data("data.txt", [validate_line])
-#os.remove(os.getcwd() + "\\report.txt")
-#os.remove("valid.txt")
+# os.remove(os.getcwd() + "\\report.txt")
+# os.remove("valid.txt")
