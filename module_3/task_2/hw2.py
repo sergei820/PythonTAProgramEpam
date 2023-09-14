@@ -14,11 +14,9 @@ from collections.abc import Callable
 
 
 def cache(func: Callable) -> Callable:
-
     cached_results = {}
 
     def cache_func(*args):
-
         if args in cached_results:
             return cached_results
         else:
