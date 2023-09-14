@@ -18,8 +18,12 @@ def cache(func: Callable) -> Callable:
     cached_results = {}
 
     def cache_func(*args):
-        args_tuple = (args)
-        result = func(*args)
 
+        if args in cached_results:
+            return cached_results
+        else:
+            for arg in args:
+                cached_results[arg] = func(*args)
+        return cached_results
 
-    return cache_func()
+    return cache_func
