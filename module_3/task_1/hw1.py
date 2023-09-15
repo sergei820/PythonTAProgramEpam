@@ -54,28 +54,22 @@ def validate_sequence_in_line(line: str) -> bool:
 
 
 def check_data(filepath: str, validators: Iterable[Callable]) -> str:
-    data_from_file = []
     validated_data = []
-    # valids = []
     report_path = os.getcwd() + "\\report.txt"
     print(report_path)
-    with open(filepath, "r") as filehandle, open() as sad:  # write to another file
-        for line in filehandle:
-            data_from_file.append(line)  # use readlines here!!!!!!!!!!! -> validate  HERE!!!!
+    with open(filepath, "r") as filehandle, open(report_path, "w") as report:
+        data_from_file = filehandle.readlines()
 
-    for line_to_validate in data_from_file:
-        for validator in validators:
-            # line not valid
-            if not validator(line_to_validate):
-                validated_data.append(line_to_validate.replace("\n", " " + validator.__name__ + "\n"))
-                break
-            # valid line
-            #else:
-            #    valids.append(line_to_validate.replace("\n", " VALID\n"))
-
-    # with open("valid.txt", "w") as file:
-    #     for valid_line in valids:
-    #         file.write(valid_line)
+        for line_to_validate in data_from_file:
+            for validator in validators:
+                if not validator(line_to_validate):
+                    validated_data.append(line_to_validate.replace("\n", " " + validator.__name__ + "\n"))
+                    # can't write to the report file right here:
+                    # report.write(line_to_validate.replace("\n", " " + validator.__name__ + "\n"))
+                    # because it causes errors like:
+                    # FAILED test_hw1.py::test_check_data_real_file -
+                    # UnboundLocalError: cannot access local variable 'i' where it is not associated with a value
+                    break
 
     with open(report_path, "w") as report:
         for line in validated_data:
