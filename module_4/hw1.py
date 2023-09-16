@@ -29,6 +29,7 @@ class Homework:
     def __init__(self, homework_text, deadline: timedelta):
         self.homework_text = homework_text
         self.deadline = deadline
+        self.solution = None
 
     # Homework has a method, that tells if deadline has passed.
     def deadline_has_passed(self) -> bool:
@@ -36,18 +37,21 @@ class Homework:
 
 
 class Student:
-    def __init__(self):
-        pass
+    def __init__(self, last_name: str, first_name: str):
+        self.last_name = last_name
+        self.first_name = first_name
 
     # Raises DeadlineError with "You are late" message if deadline has passed
-    def do_homework(self, homework: Homework):
+    def do_homework(self, homework: Homework, solution_text: str):
         if homework.deadline_has_passed():
             raise DeadlineError("You are late")
+        homework.solution = solution_text
 
 
 class Teacher:
-    def __init__(self):
-        pass
+    def __init__(self, last_name: str, first_name: str):
+        self.last_name = last_name
+        self.first_name = first_name
 
     # Any teacher can create or check any homework (even if it was created by one of colleagues).
     def create_homework(self, homework_task: str, time_for_task: timedelta):  # timedelta(days=2)
