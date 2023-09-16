@@ -49,6 +49,8 @@ class Student:
 
 
 class Teacher:
+    homework_done = {}
+
     def __init__(self, last_name: str, first_name: str):
         self.last_name = last_name
         self.first_name = first_name
