@@ -1,10 +1,10 @@
 """
 Create classes to track homeworks.
 
-1. Homework - accepts howework text and deadline (datetime.timedelta)
+1. Homework - accepts howework text and deadline (datetime.timedelta)   -   Done
 Homework has a method, that tells if deadline has passed.
 
-2. Student - can solve homework with `do_homework` method.
+2. Student - can solve homework with `do_homework` method.              -   Done
 Raises DeadlineError with "You are late" message if deadline has passed
 
 3. Teacher - can create homework with `create_homework`; check homework with `check_homework`.
@@ -22,18 +22,20 @@ Homework is solved if solution has more than 5 symbols.
 Check file with tests to see how all these classes are used. You can create any additional classes 
 you want.
 """
-from datetime import timedelta
+import datetime
 
 
 class Homework:
-    def __init__(self, homework_text, deadline: timedelta):
+    def __init__(self, homework_text, deadline: datetime.timedelta.days):
         self.homework_text = homework_text
         self.deadline = deadline
-        self.solution = None
 
     # Homework has a method, that tells if deadline has passed.
     def deadline_has_passed(self) -> bool:
-        pass
+        if self.deadline < 0:
+            return True
+        else:
+            return False
 
 
 class Student:
@@ -41,11 +43,18 @@ class Student:
         self.last_name = last_name
         self.first_name = first_name
 
-    # Raises DeadlineError with "You are late" message if deadline has passed
     def do_homework(self, homework: Homework, solution_text: str):
         if homework.deadline_has_passed():
             raise DeadlineError("You are late")
-        homework.solution = solution_text
+        result = Result(homework, solution_text)
+        result.author = self
+        return result
+
+
+class Result:
+    def __init__(self, homework: Homework, solution: str):
+        self.homework = homework
+        self.solution = solution
 
 
 class Teacher:
@@ -56,11 +65,17 @@ class Teacher:
         self.first_name = first_name
 
     # Any teacher can create or check any homework (even if it was created by one of colleagues).
-    def create_homework(self, homework_task: str, time_for_task: timedelta):  # timedelta(days=2)
+    def create_homework(homework_task: str, time_for_task):  # timedelta(days=2)
         return Homework(homework_task, time_for_task)
 
-    def check_homework(self, homework: Homework):
-        pass
+    def check_homework(self, result: Result):
+        Teacher.homework_done[result.homework] = result.solution
+        print(Teacher.homework_done)
+
+    def reset_results(self):
+        Teacher.homework_done.clear()
+
+
 # Homework are cached in dict-like structure named `homework_done`. Key is homework, values are
 # solutions. Each student can only have one homework solution.
 #
@@ -71,4 +86,5 @@ class Teacher:
 
 
 class DeadlineError(Exception):
-    print("You are late")
+    def __init__(self, message="You are late"):
+        self.message = message
