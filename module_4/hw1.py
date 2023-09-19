@@ -30,7 +30,6 @@ class Homework:
         self.homework_text = homework_text
         self.deadline = deadline
 
-    # Homework has a method, that tells if deadline has passed.
     def deadline_has_passed(self) -> bool:
         if self.deadline < 0:
             return True
@@ -64,25 +63,24 @@ class Teacher:
         self.last_name = last_name
         self.first_name = first_name
 
-    # Any teacher can create or check any homework (even if it was created by one of colleagues).
-    def create_homework(homework_task: str, time_for_task):  # timedelta(days=2)
+    def create_homework(homework_task: str, time_for_task):
         return Homework(homework_task, time_for_task)
 
     def check_homework(self, result: Result):
-        Teacher.homework_done[result.homework] = result.solution
-        print(Teacher.homework_done)
+        if len(result.solution) > 5:
+            if Teacher.homework_done.get(result.homework) is None:
+                Teacher.homework_done[result.homework] = set()
+                Teacher.homework_done[result.homework].add(result)
+            else:
+                Teacher.homework_done[result.homework].add(result)
+            return True
+        else:
+            Teacher.homework_done[result.homework] = set()
+            return False
 
-    def reset_results(self):
+    @staticmethod
+    def reset_results():
         Teacher.homework_done.clear()
-
-
-# Homework are cached in dict-like structure named `homework_done`. Key is homework, values are
-# solutions. Each student can only have one homework solution.
-#
-# Teacher can `reset_results` - with argument it will reset results for specific homework, without -
-# it clears the cache.
-#
-# Homework is solved if solution has more than 5 symbols.
 
 
 class DeadlineError(Exception):
