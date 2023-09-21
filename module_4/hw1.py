@@ -70,18 +70,18 @@ class Teacher:
 
     @classmethod
     def check_homework(cls, result: Result):
-        if result.homework in Teacher.homework_done:
+        if result.homework in cls.homework_done:
             return True
         else:
             if len(result.solution) > 5:
-                if Teacher.homework_done.get(result.homework) is None:
-                    Teacher.homework_done[result.homework] = set()
-                    Teacher.homework_done[result.homework].add(result)
+                if cls.homework_done.get(result.homework) is None:
+                    cls.homework_done[result.homework] = set()
+                    cls.homework_done[result.homework].add(result)
                 else:
-                    Teacher.homework_done[result.homework].add(result)
+                    cls.homework_done[result.homework].add(result)
                 return True
             else:
-                Teacher.homework_done[result.homework] = set()
+                cls.homework_done[result.homework] = set()
                 return False
 
     @classmethod
