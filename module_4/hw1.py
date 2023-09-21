@@ -29,9 +29,10 @@ class Homework:
     def __init__(self, homework_text, deadline: datetime.timedelta.days):
         self.homework_text = homework_text
         self.deadline = deadline
+        self.creation_date = datetime.datetime.now()
 
     def deadline_has_passed(self) -> bool:
-        if self.deadline < 0:
+        if self.creation_date.day + self.deadline < self.creation_date.day:
             return True
         else:
             return False
@@ -63,24 +64,29 @@ class Teacher:
         self.last_name = last_name
         self.first_name = first_name
 
-    def create_homework(homework_task: str, time_for_task):
+    @classmethod
+    def create_homework(cls, homework_task: str, time_for_task):
         return Homework(homework_task, time_for_task)
 
-    def check_homework(self, result: Result):
-        if len(result.solution) > 5:
-            if Teacher.homework_done.get(result.homework) is None:
-                Teacher.homework_done[result.homework] = set()
-                Teacher.homework_done[result.homework].add(result)
-            else:
-                Teacher.homework_done[result.homework].add(result)
+    @classmethod
+    def check_homework(cls, result: Result):
+        if result.homework in Teacher.homework_done:
             return True
         else:
-            Teacher.homework_done[result.homework] = set()
-            return False
+            if len(result.solution) > 5:
+                if Teacher.homework_done.get(result.homework) is None:
+                    Teacher.homework_done[result.homework] = set()
+                    Teacher.homework_done[result.homework].add(result)
+                else:
+                    Teacher.homework_done[result.homework].add(result)
+                return True
+            else:
+                Teacher.homework_done[result.homework] = set()
+                return False
 
-    @staticmethod
-    def reset_results():
-        Teacher.homework_done.clear()
+    @classmethod
+    def reset_results(cls):
+        cls.homework_done.clear()
 
 
 class DeadlineError(Exception):
