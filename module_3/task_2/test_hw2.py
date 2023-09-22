@@ -13,3 +13,8 @@ def test_cache():
     val_2 = cache_func(*some)
 
     assert val_1 is val_2
+
+    val_3 = cache_func(200, 300)
+    assert val_1 == (some[0] ** some[1]) ** 2
+    assert val_2 == (some[0] ** some[1]) ** 2
+    assert val_2 is not val_3
