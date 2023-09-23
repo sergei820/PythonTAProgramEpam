@@ -33,12 +33,14 @@ class KeyValueStorage:
 
 if __name__ == "__main__":
     storage = KeyValueStorage(os.getcwd() + "\\task1.txt")
-    print(f"{storage['name']} its type: {type(storage['name'])}")
-    print(f"{storage.name} its type: {type(storage.name)}")
-    print(f"{storage.last_name} its type: {type(storage.last_name)}")
-    print(f"{storage.power} its type: {type(storage.power)}")
-    print(f"{storage.song} its type: {type(storage.song)}")
-    print(f"{storage['power']} its type: {type(storage['power'])}")
+    print(
+        f"{storage['name']} its type: {type(storage['name'])}\n"
+        f"{storage.name} its type: {type(storage.name)}\n"
+        f"{storage.last_name} its type: {type(storage.last_name)}\n"
+        f"{storage.power} its type: {type(storage.power)}\n"
+        f"{storage.song} its type: {type(storage.song)}\n"
+        f"{storage['power']} its type: {type(storage['power'])}\n"
+    )
 
 # name=kek
 # last_name=top
