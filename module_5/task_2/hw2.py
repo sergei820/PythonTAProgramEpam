@@ -81,5 +81,7 @@ if __name__ == "__main__":
 #  - all above mentioned calls should reflect most recent data.
 #  If data in table changed after you created collection instance, your calls should return updated data.
 #
-# Avoid reading entire table into memory. When iterating through records, start reading the first record, then go to the next one, until records are exhausted.
-# When writing tests, it's not always necessary to mock database calls completely. Use supplied example.sqlite file as database fixture file.
+# Avoid reading entire table into memory. When iterating through records, start reading the first record,
+# then go to the next one, until records are exhausted.
+# When writing tests, it's not always necessary to mock database calls completely.
+# Use supplied example.sqlite file as database fixture file.
