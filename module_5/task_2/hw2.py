@@ -3,26 +3,16 @@ from collections import namedtuple
 
 
 class TableData:
-    BookRecord = namedtuple('title', 'author')
-
-    def __init__(self, database_name: str, table_name: str = None):
+    def __init__(self, database_name: str, table_name: str):
         self.database_name = database_name
-        if table_name:
-            self.table_name = table_name
-        else:
-            self.table_name = self.get_db_tables_list()[0]
+        self.table_name = table_name
 
     def get_db_tables_list(self):
         with sqlite3.connect(self.database_name) as connection:
-            # cursor is an object or data structure that allows you to interact with a database result set.
-            # It acts as a pointer or iterator
-            # that helps you navigate through the rows of data retrieved from a database query
+            # cursor is an object that allows you to interact with a database result set. It acts as an iterator
             cursor = connection.cursor()
             cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
             table_names = cursor.fetchall()
-
-            cursor.close()
-            connection.close()
 
             table_names = [table[0] for table in table_names]
             return table_names
@@ -41,13 +31,13 @@ class TableData:
             return cursor.fetchone()[0]
 
     def __getitem__(self, item):
-        for row in self.get_table_data():
-            if row[1] == item:
-                return row
+        for getitem_row in self.get_table_data():
+            if getitem_row[1] == item:
+                return {'title': getitem_row[0], 'author': getitem_row[1]}
 
     def __contains__(self, item):
-        for row in self.get_table_data():
-            if row[1] == item:
+        for contains_row in self.get_table_data():
+            if contains_row[1] == item:
                 return True
         return False
 
@@ -59,7 +49,7 @@ class TableData:
                 row_in_table = cursor.fetchone()
                 if row_in_table is None:
                     break
-                yield row_in_table
+                yield {'title': row_in_table[0], 'author': row_in_table[1]}
 
 
 if __name__ == "__main__":
