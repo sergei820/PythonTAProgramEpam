@@ -64,24 +64,3 @@ if __name__ == "__main__":
     print('Bradbury' in books_table)
     for book in books_table:
         print(book['author'])
-
-
-# Write a wrapper class TableData for database table, that when initialized with database name and table
-# acts as collection object (implements Collection protocol).
-# Assume all data has unique values in 'author' column.
-# So, if books = TableData(database_name='example.sqlite', table_name='books')
-#
-# then
-#  -  `len(books)` will give current amount of rows in books table in database
-#  -  `books['Bradbury']` should return single data row for book with author Bradbury
-#  -  `'Yeltsin' in books` should return if book with same author exists in table
-#  -  object implements iteration protocol. i.e. you could use it in for loops::
-#        for book in books:
-#            print(book['author'])
-#  - all above mentioned calls should reflect most recent data.
-#  If data in table changed after you created collection instance, your calls should return updated data.
-#
-# Avoid reading entire table into memory. When iterating through records, start reading the first record,
-# then go to the next one, until records are exhausted.
-# When writing tests, it's not always necessary to mock database calls completely.
-# Use supplied example.sqlite file as database fixture file.
