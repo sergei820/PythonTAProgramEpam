@@ -3,22 +3,17 @@
 # function should return an iterator (generator function)
 # don't use third-party libraries
 
+
 def merge_elems(*elems):
     for elem in elems:
         # if is_iterable(elem):
-        if hasattr(elem, '__iter__') and not isinstance(elem, (str, bytes)):
-            yield from merge_elems(*elem)
+        if hasattr(elem, '__iter__'):
+            if isinstance(elem, (str, bytes)):
+                yield from elem
+            else:
+                yield from merge_elems(*elem)
         else:
             yield elem
-
-
-def is_iterable(obj):
-    try:
-        if iter(obj):
-            return True
-    except TypeError:
-        return False
-
 
 
 # example input
