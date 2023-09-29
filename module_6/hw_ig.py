@@ -4,7 +4,16 @@
 # don't use third-party libraries
 
 def merge_elems(*elems):
-    pass
+    for elem in elems:
+        # if is_iterable(elem):
+        if hasattr(elem, '__iter__'):
+            if isinstance(elem, (str, bytes)):
+                yield from elem
+            else:
+                yield from merge_elems(*elem)
+        else:
+            yield elem
+
 
 # example input
 a = [1, 2, 3]
@@ -20,8 +29,14 @@ for _ in merge_elems(a, b, c, d):
 # 2. Implement a map-like function that returns an iterator (generator function)
 # extra functionality: if arg function can't be applied, return element as is + text exception
 
+
 def map_like(fun, *elems):
-    pass
+    for elem in elems:
+        try:
+            yield fun(elem)
+        except TypeError:
+            yield elem
+
 
 # example input
 a = [1, 2, 3]
