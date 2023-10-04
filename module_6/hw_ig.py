@@ -34,8 +34,8 @@ def map_like(fun, *elems):
     for elem in elems:
         try:
             yield fun(elem)
-        except TypeError:
-            yield elem
+        except TypeError as error:
+            yield f"{elem}: {error}"
 
 
 # example input
