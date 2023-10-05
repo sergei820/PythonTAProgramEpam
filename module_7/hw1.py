@@ -37,21 +37,21 @@ Base.metadata.create_all(db_engine)
 Session = sessionmaker(bind=db_engine)
 session = Session()
 
-film1 = Film(title='Star Wars. Episode IV: A New Hope', director='George Lucas', release_year=1977)
-film2 = Film(title='Star Wars: Episode VII: The Force Awakens', director='J.J. Abrams', release_year=2015)
-film3 = Film(title='Star Wars: Episode VIII: The Last Jedi', director='Rian Johnson', release_year=2017)
+film1 = Film(title='Star Wars. Episode IV: A New Hope        ', director='George Lucas', release_year=1977)
+film2 = Film(title='Star Wars: Episode VII: The Force Awakens', director='J.J. Abrams ', release_year=2015)
+film3 = Film(title='Star Wars: Episode VIII: The Last Jedi   ', director='Rian Johnson', release_year=2017)
 
 session.add_all([film1, film2, film3])
 session.commit()
 
-film_to_update = session.query(Film).filter_by(title='Star Wars. Episode IV: A New Hope').first()
+film_to_update = session.query(Film).filter_by(title='Star Wars: Episode VII: The Force Awakens').first()
 if film_to_update:
-    film_to_update.director = 'George Lucas ft. Disney'
+    film_to_update.director = 'Disney      '
     session.commit()
 
 films = session.query(Film).all()
 for film in films:
-    print(f'ID: {film.id},  Title: {film.title},  Director: {film.director},  Release Year: {film.release_year}')
+    print(f'ID: {film.id},   Title: {film.title},   Director: {film.director},   Release Year: {film.release_year}')
 
 session.query(Film).delete()
 session.commit()
