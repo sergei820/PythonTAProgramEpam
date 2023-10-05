@@ -20,13 +20,54 @@ from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
-class User(Base):
-    __tablename__ = 'users'
+
+class Film(Base):
+    __tablename__ = 'films'
+
     id = Column(Integer, primary_key=True)
-    username = Column(String)
-    email = Column(String)
+    title = Column(String)
+    director = Column(String)
+    release_year = Column(Integer)
+
 
 db_engine = create_engine("sqlite:///films_db.db")
 
 Base.metadata.create_all(db_engine)
+
+Session = sessionmaker(bind=db_engine)
+session = Session()
+
+new_data = Film(id=1, title='title 1', director='director 1', release_year=1986)
+session.add(new_data)
+session.commit()
+
+result = session.query(Film).filter_by(id=1).first()
+
+session.close()
+
+
+
+# Create a session
+Session = sessionmaker(bind=db_engine)
+session = Session()
+
+# Select all rows from a table
+result = session.query(Film).all()
+for row in result:
+    print(row.name)
+
+# Create a session
+Session = sessionmaker(bind=db_engine)
+session = Session()
+
+# Select all rows from a table
+result = session.query(Film).all()
+for row in result:
+    print(row.name)
+
+# Close the session when done
+session.close()
+
+
+
 
