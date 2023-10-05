@@ -15,9 +15,11 @@
 #         Delete all data from table
 
 from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+
+db_engine = create_engine("sqlite:///films_db.db")
 Base = declarative_base()
 
 
@@ -30,44 +32,28 @@ class Film(Base):
     release_year = Column(Integer)
 
 
-db_engine = create_engine("sqlite:///films_db.db")
-
 Base.metadata.create_all(db_engine)
 
 Session = sessionmaker(bind=db_engine)
 session = Session()
 
-new_data = Film(id=1, title='title 1', director='director 1', release_year=1986)
-session.add(new_data)
+film1 = Film(title='Star Wars. Episode IV: A New Hope', director='George Lucas', release_year=1977)
+film2 = Film(title='Star Wars: Episode VII: The Force Awakens', director='J.J. Abrams', release_year=2015)
+film3 = Film(title='Star Wars: Episode VIII: The Last Jedi', director='Rian Johnson', release_year=2017)
+
+session.add_all([film1, film2, film3])
 session.commit()
 
-result = session.query(Film).filter_by(id=1).first()
+film_to_update = session.query(Film).filter_by(title='Star Wars. Episode IV: A New Hope').first()
+if film_to_update:
+    film_to_update.director = 'George Lucas ft. Disney'
+    session.commit()
+
+films = session.query(Film).all()
+for film in films:
+    print(f'ID: {film.id},  Title: {film.title},  Director: {film.director},  Release Year: {film.release_year}')
+
+session.query(Film).delete()
+session.commit()
 
 session.close()
-
-
-
-# Create a session
-Session = sessionmaker(bind=db_engine)
-session = Session()
-
-# Select all rows from a table
-result = session.query(Film).all()
-for row in result:
-    print(row.name)
-
-# Create a session
-Session = sessionmaker(bind=db_engine)
-session = Session()
-
-# Select all rows from a table
-result = session.query(Film).all()
-for row in result:
-    print(row.name)
-
-# Close the session when done
-session.close()
-
-
-
-
