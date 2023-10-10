@@ -1,71 +1,76 @@
-import asyncio
-import aiohttp
+import requests
 from bs4 import BeautifulSoup
 import json
 
+# Step 1: Make an HTTP request to the S&P500 index page
+url = "https://markets.businessinsider.com/index/components/s&p_500"
+response = requests.get(url)
 
-async def fetch_company_data(session, url):
-    async with session.get(url) as response:
-        return await response.text()
+if response.status_code == 200:
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    # Step 2: Parse the list of company links
+    company_links = [a["href"] for a in soup.select(".table__tbody td:nth-child(1) a")]
+
+    # Initialize lists to store company data
+    companies = []
+
+    # Iterate through each company link
+    for company_link in company_links[:10]:  # Limit to the top 10 companies for now
+        # Step 3: Visit the company's page and extract required information
+        company_url = f"https://markets.businessinsider.com{company_link}"
+        company_response = requests.get(company_url)
+
+        if company_response.status_code == 200:
+            company_soup = BeautifulSoup(company_response.text, "html.parser")
+
+            # Extract price, code, name, and growth
+            price = company_soup.select_one(".price-section__current-value").text
+            code = company_soup.select_one(".price-section__label").text
+            name = company_soup.select_one(".price-section__identifiers .price-section__label").text
+
+            # Find the P/E ratio using a CSS selector
+            pe_label = company_soup.select_one(".key-data-currency")
+            pe_ratio = pe_label.find_next("span").text if pe_label else "N/A"
+
+            # Find the growth data using the previous locator
+            growth_data = company_soup.select_one(".historical-prices__price-change-values span:first-of-type").text
+
+            # Step 4: Store information for each company in a dictionary
+            company_data = {
+                "code": code,
+                "name": name,
+                "price": price,
+                "P/E": pe_ratio,
+                "growth": growth_data,
+            }
+            companies.append(company_data)
+
+    # Step 5: Save the top 10 companies in a JSON file
+    with open("top_10_companies.json", "w") as json_file:
+        json.dump(companies, json_file, indent=4)
+
+    expensive_file = 'top_10_expensive.json'
+    lowest_pe_file = 'top_10_lowest_pe.json'
+    most_growth_file = 'top_10_most_growth.json'
 
 
-async def parse_company_data(session, company_url, companies_data):
-    company_page = await fetch_company_data(session, company_url)
-    soup = BeautifulSoup(company_page, 'html.parser')
-
-    # Parse the required information from the company page
-    company_name = soup.find('h1', class_='price-section__name').text.strip()
-    company_code = soup.find('span', class_='price-section__label').text.strip()
-    company_price = soup.find('div', class_='price-section__current-value').text.strip()
-    company_pe = soup.find('span', text='P/E Ratio').find_next('span').text.strip()
-    company_growth = soup.find('span', text='1 Year Return').find_next('span').text.strip()
-
-    # Create a dictionary for the company
-    company_info = {
-        'code': company_code,
-        'name': company_name,
-        'price': company_price,
-        'P/E': company_pe,
-        'growth': company_growth,
-    }
-
-    companies_data.append(company_info)
+    # Define a function to save data to JSON
+    def save_to_json(data, file_path):
+        with open(file_path, 'w') as json_file:
+            json.dump(data, json_file, indent=4)
 
 
-async def main():
-    base_url = 'https://markets.businessinsider.com'
-    sp500_url = f'{base_url}/index/components/s&p_500'
+    # Sort and save the top 10 companies with the most expensive shares
+    top_10_expensive = sorted(companies, key=lambda x: x['price'], reverse=True)[:10]
+    save_to_json(top_10_expensive, expensive_file)
 
-    async with aiohttp.ClientSession() as session:
-        response = await fetch_company_data(session, sp500_url)
-        soup = BeautifulSoup(response, 'html.parser')
-        company_links = [a['href'] for a in soup.select('tbody.table__tbody tr td:nth-child(1) a')]
+    # Sort and save the top 10 companies with the lowest P/E
+    top_10_lowest_pe = sorted(companies, key=lambda x: x['P/E'])[:10]
+    save_to_json(top_10_lowest_pe, lowest_pe_file)
 
-        tasks = []
-        companies_data = []
+    # Sort and save the top 10 companies with the most growth for the last year
+    top_10_most_growth = sorted(companies, key=lambda x: x['growth'], reverse=True)[:10]
+    save_to_json(top_10_most_growth, most_growth_file)
 
-        for link in company_links:
-            company_url = base_url + link
-            task = asyncio.ensure_future(parse_company_data(session, company_url, companies_data))
-            tasks.append(task)
-
-        await asyncio.gather(*tasks)
-
-        # Sort companies by price, P/E, and growth and select the top 10
-        top_10_price = sorted(companies_data, key=lambda x: float(x['price'].replace(',', '').replace('$', '')), reverse=True)[:10]
-        top_10_pe = sorted(companies_data, key=lambda x: float(x['P/E'].replace(',', '').replace('x', '')))[:10]
-        top_10_growth = sorted(companies_data, key=lambda x: float(x['growth'].replace('%', '').replace(',', '')), reverse=True)[:10]
-
-        # Save the top 10 companies to JSON files
-        with open('top_10_price.json', 'w') as f:
-            json.dump(top_10_price, f, indent=4)
-
-        with open('top_10_pe.json', 'w') as f:
-            json.dump(top_10_pe, f, indent=4)
-
-        with open('top_10_growth.json', 'w') as f:
-            json.dump(top_10_growth, f, indent=4)
-
-if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+    print("Top 10 companies data saved in 'top_10_companies.json' file.")
