@@ -1,0 +1,26 @@
+Homework
+Your task is to parse data about the companies from the S&P500 index, which can be found here:
+https://markets.businessinsider.com/index/components/s&p_500
+For each company gather the information about:
+Current company price
+Company's code (to the right of the company name on the company page)
+P/E of the company (to the right of the graph on the company page)
+Year growth/decline of the company (in %) (main table)
+Save the information in 3 JSON files
+1. Top 10 companies with the most expensive shares.
+2. Top 10 companies with the lowest P/E.
+3. Top 10 companies with the most growth for the last year
+Sample format:
+[
+{
+"code": "MMM",
+"name": "3M CO.",
+"price" | "P/E" | "growth" : value,
+},
+...
+]
+Use the asyncio (with aiohttp) or threading (with requests) to speed up the data fetching
+Would be cool to use both approaches and compare them :) Useful libs:
+beautifulsoup4 for parsing HTML fetched from the given website
+aiohttp as an async HTTP client
+httpx
