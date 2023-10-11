@@ -1,5 +1,7 @@
+"""
+Had to make a branch copy, because accidentally merged Pull Request
+"""
 import sqlite3
-from collections import namedtuple
 
 
 class TableData:
