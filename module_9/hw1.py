@@ -22,8 +22,8 @@ if response.status_code == 200:
             price = company_soup.select_one(".price-section__current-value").text
             code = company_soup.select_one(".price-section__category span").text.replace(", ", "")
             name = company_soup.select_one(".price-section__identifiers .price-section__label").text
-            pe_label = company_soup.select_one("#snapshot-highlow + div + div + div")
-            pe_ratio = pe_label.find_next("span").text if pe_label else "N/A"
+            pe_ratio = company_soup.select_one("#snapshot-highlow + div + div + div").text\
+                .replace("P/E Ratio", "").replace(" ", "").replace("\n", "")
             growth_data = company_soup.select_one(".historical-prices__price-change-values span:first-of-type").text
 
             company_data = {
