@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc66d3ee-291d-4370-b8e9-020ad19f1eef" name="Changes" comment="Module 2 HW - refactoring 2">
-      <change afterPath="$PROJECT_DIR$/module_2/hw2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_2/requirements (2).txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_2/test_hw2.py" afterDir="false" />
+    <list default="true" id="cc66d3ee-291d-4370-b8e9-020ad19f1eef" name="Changes" comment="Module 5, Task 1 - done">
+      <change afterPath="$PROJECT_DIR$/module_5/task_2/example.sqlite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_5/task_2/hw2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module_5/task_2/task2.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,10 +15,17 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="module_4" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,26 +34,30 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2V0rSQ1nsdmlMZnjB7xlXqC5bBh" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Learn/PythonTAProgramEpam/module_1&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Learn/PythonTAProgramEpam/module_5/task_2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Learn\PythonTAProgramEpam\module_1" />
+      <recent name="C:\Learn\PythonTAProgramEpam\module_5\task_2" />
+      <recent name="C:\Learn\PythonTAProgramEpam\module_5\task_1" />
+      <recent name="C:\Learn\PythonTAProgramEpam\module_4" />
+      <recent name="C:\Learn\PythonTAProgramEpam\module_3\task_4" />
+      <recent name="C:\Learn\PythonTAProgramEpam\module_3\task_3" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Learn\PythonTAProgramEpam\module_2" />
@@ -61,11 +72,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/module_2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/module_5/task_1" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/module_2/hw1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/module_5/task_1/hw1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -82,11 +93,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/module_2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/module_5/task_2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/module_2/hw2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/module_5/task_2/hw2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -95,7 +106,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="module_1_hw" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="hw4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonTAProgramEpam" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -103,11 +114,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/module_1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/module_3/task_4" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/module_1/module_1_hw.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/module_3/task_4/hw4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -116,11 +127,48 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="practice" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonTAProgramEpam" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_hw1.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="PythonTAProgramEpam" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/module_4" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/module_4/test_hw1.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.hw2" />
         <item itemvalue="Python.hw1" />
-        <item itemvalue="Python.module_1_hw" />
+        <item itemvalue="Python tests.Python tests in test_hw1.py" />
+        <item itemvalue="Python.practice" />
+        <item itemvalue="Python.hw4" />
       </list>
     </recent_temporary>
   </component>
@@ -161,8 +209,152 @@
       <option name="project" value="LOCAL" />
       <updated>1694176231658</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Module 3 Task 1 - implemented &#10;1 failed (assert 746 == 777), &#10;1 passed">
+      <created>1694619570085</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694619570085</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Module 3 Task 1 - question &#10;1 failed (assert 746 == 777), &#10;1 passed">
+      <created>1694692890411</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694692890411</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Module 3 Task 1 - fix &#10;1 failed (assert 774 == 777), &#10;1 passed">
+      <created>1694696505887</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694696505887</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Module 3&#10;Task 1:&#10;   1 failed (assert 774 == 777), &#10;   1 passed&#10;Task 2 - Done">
+      <created>1694697414280</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694697414280</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Module 3&#10;Task 1:&#10;   1 failed (assert 774 == 777), &#10;   1 passed&#10;Task 2 - Done&#10;Task 3 - Done">
+      <created>1694704909982</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1694704909982</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Module 3&#10;Task 1:&#10;   1 failed (assert 774 == 777), - FIX IT&#10;   1 passed&#10;Task 2 - Done&#10;Task 3 - Done&#10;Task 4 - In progress">
+      <created>1694711955652</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694711955652</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Module 3&#10;Task 1 - Done&#10;Task 2 - Done&#10;Task 3 - Done&#10;Task 4 - In progress">
+      <created>1694774182634</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1694774182634</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Module 3&#10;Task 1 - Done&#10;Task 2 - Done&#10;Task 3 - Done&#10;Task 4 - Passes tests">
+      <created>1694791506639</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1694791506640</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Module 4&#10;Task 1 - in progress">
+      <created>1694881116012</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1694881116012</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Module 4&#10;Task 1 - in progress">
+      <created>1694881628160</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694881628160</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Module 4&#10;Task 1 - in progress">
+      <created>1694881710451</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1694881710451</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Module 4&#10;Task 1 - in progress">
+      <created>1694903251121</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1694903251121</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Module 4&#10;Task 1 - in progress (failing on assert hw_cache_length == len(Teacher.homework_done[first_hw]) == 1)">
+      <created>1695031836451</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1695031836452</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Module 4 Task 1 - done">
+      <created>1695108204822</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1695108204822</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Module 3 Task 2 - fixed (additional asserts were also added into the test file)">
+      <created>1695115574521</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1695115574521</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Module 4 - fixed">
+      <created>1695301009673</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1695301009673</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Module 4 - fixed">
+      <created>1695301193964</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1695301193964</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Module 5 Task 1 - implemented">
+      <created>1695468684613</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1695468684613</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Module 5, Task 1 - done">
+      <created>1695469999195</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1695469999195</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -170,6 +362,37 @@
     <MESSAGE value="module 2 homework - implemented" />
     <MESSAGE value="Module 2 HW - refactoring 1" />
     <MESSAGE value="Module 2 HW - refactoring 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Module 2 HW - refactoring 2" />
+    <MESSAGE value="Module 3 Task 1 - implemented &#10;1 failed (assert 746 == 777), &#10;1 passed" />
+    <MESSAGE value="Module 3 Task 1 - question &#10;1 failed (assert 746 == 777), &#10;1 passed" />
+    <MESSAGE value="Module 3 Task 1 - fix &#10;1 failed (assert 774 == 777), &#10;1 passed" />
+    <MESSAGE value="Module 3&#10;Task 1:&#10;   1 failed (assert 774 == 777), &#10;   1 passed&#10;Task 2 - Done" />
+    <MESSAGE value="Module 3&#10;Task 1:&#10;   1 failed (assert 774 == 777), &#10;   1 passed&#10;Task 2 - Done&#10;Task 3 - Done" />
+    <MESSAGE value="Module 3&#10;Task 1:&#10;   1 failed (assert 774 == 777), - FIX IT&#10;   1 passed&#10;Task 2 - Done&#10;Task 3 - Done&#10;Task 4 - In progress" />
+    <MESSAGE value="Module 3&#10;Task 1 - Done&#10;Task 2 - Done&#10;Task 3 - Done&#10;Task 4 - In progress" />
+    <MESSAGE value="Module 3&#10;Task 1 - Done&#10;Task 2 - Done&#10;Task 3 - Done&#10;Task 4 - Passes tests" />
+    <MESSAGE value="Module 4&#10;Task 1 - in progress" />
+    <MESSAGE value="Module 4&#10;Task 1 - in progress (failing on assert hw_cache_length == len(Teacher.homework_done[first_hw]) == 1)" />
+    <MESSAGE value="Module 4 Task 1 - done" />
+    <MESSAGE value="Module 3 Task 2 - fixed (additional asserts were also added into the test file)" />
+    <MESSAGE value="Module 4 - fixed" />
+    <MESSAGE value="Module 5 Task 1 - implemented" />
+    <MESSAGE value="Module 5, Task 1 - done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Module 5, Task 1 - done" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/module_3/task_3/hw3.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/module_4/test_hw1.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
