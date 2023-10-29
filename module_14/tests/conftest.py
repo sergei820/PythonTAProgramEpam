@@ -1,11 +1,13 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
 
 
 @pytest.fixture(scope="class")
 def setup(request):
     chrome_driver_path = "driver/chromedriver-win64/chromedriver.exe"
-    driver = webdriver.Chrome(executable_path=chrome_driver_path)
+    chrome_service = ChromeService(chrome_driver_path)
+    driver = webdriver.Chrome(service=chrome_service)
     request.cls.driver = driver
     yield
     driver.quit()
