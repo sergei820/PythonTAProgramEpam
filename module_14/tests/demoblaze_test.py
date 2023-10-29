@@ -1,6 +1,7 @@
 import pytest
 
 from module_14.pages.home_page import HomePage
+from module_14.pages.product_page import ProductPage
 
 
 @pytest.mark.usefixtures("setup")
@@ -24,6 +25,8 @@ class TestDemoBlaze:
         home_page.click_on_the_highest_price_product()
         # step 2: Click on the product with the highest price on the page
         #   expected result: product's page with {product_name} and {product_price} is open
+        product_page = ProductPage(self.driver)
+        product_page.check_the_products_page_opened("Apple monitor 24", "$400")
         # step 3: Click on Add to cart button
         # step 4: Click on Cart button
         #   expected result: product is successfully added to cart; {product_name} and {product_price} are presented
