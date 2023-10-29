@@ -28,5 +28,7 @@ class TestDemoBlaze:
         product_page = ProductPage(self.driver)
         product_page.check_the_products_page_opened("Apple monitor 24", "$400")
         # step 3: Click on Add to cart button
+        product_page.click_on_add_to_cart_button()
         # step 4: Click on Cart button
+        product_page.click_on_cart_button()
         #   expected result: product is successfully added to cart; {product_name} and {product_price} are presented

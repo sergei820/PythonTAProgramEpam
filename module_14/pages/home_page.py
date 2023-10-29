@@ -57,12 +57,9 @@ class HomePage:
                        for price_element in self.driver.find_elements(By.XPATH, self.PRICES_XPATH)]
         max_price = max(prices_list)
 
-        max_price_selector = "//*[contains(text(),'$')]/preceding-sibling::*[@class='card-title']"\
-            .replace('$', f'${max_price}')
-        print(max_price_selector)
-        self.wait.until(ec.visibility_of_element_located(max_price_selector))
+        any_price_selector = "//*[contains(text(),'$')]/preceding-sibling::*[@class='card-title']/a"
+        max_price_selector = any_price_selector.replace('$', f'${max_price}')
+
         max_price_element = self.driver.find_element(By.XPATH, max_price_selector)
         max_price_element.click()
-
-
 

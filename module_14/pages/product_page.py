@@ -7,6 +7,8 @@ class ProductPage:
     # PRODUCT_NAME = (By.CSS_SELECTOR, "#tbodyid .name")
     PRODUCT_NAME = (By.XPATH, "//div[@id='tbodyid']/h2[@class='name']")
     PRODUCT_PRICE = (By.CSS_SELECTOR, "#tbodyid .price-container")
+    ADD_TO_CART = (By.XPATH, "//div[@id='tbodyid']//a[contains(text(),'Add to cart')]")
+    CART_BUTTON = (By.ID, "#cartur")
 
     def __init__(self, driver):
         self.driver = driver
@@ -18,5 +20,15 @@ class ProductPage:
         assert product_name_actual == product_name_expected
         product_price_actual = self.driver.find_element(*self.PRODUCT_PRICE).text
         assert product_price_expected in product_price_actual
+
+    def click_on_add_to_cart_button(self):
+        self.driver.find_element(*self.ADD_TO_CART).click()
+
+    def click_on_cart_button(self):
+        self.driver.find_element(*self.CART_BUTTON).click()
+
+
+
+
 
 
