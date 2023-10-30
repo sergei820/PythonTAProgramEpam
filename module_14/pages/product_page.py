@@ -4,7 +4,6 @@ from selenium.webdriver.support import expected_conditions as ec
 
 
 class ProductPage:
-    # PRODUCT_NAME = (By.CSS_SELECTOR, "#tbodyid .name")
     PRODUCT_NAME = (By.XPATH, "//div[@id='tbodyid']/h2[@class='name']")
     PRODUCT_PRICE = (By.CSS_SELECTOR, "#tbodyid .price-container")
     ADD_TO_CART = (By.XPATH, "//div[@id='tbodyid']//a[contains(text(),'Add to cart')]")
@@ -30,9 +29,3 @@ class ProductPage:
     def click_on_cart_button(self):
         self.wait.until(ec.visibility_of_element_located(self.CART_BUTTON))
         self.driver.find_element(*self.CART_BUTTON).click()
-
-
-
-
-
-
