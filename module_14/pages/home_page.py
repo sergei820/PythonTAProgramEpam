@@ -41,18 +41,13 @@ class HomePage:
         assert welcome_message == f"Welcome {username}"
 
     def click_category(self, category):
-        # have to reload the page because of StaleElementReferenceException,
-        # that can't be solved by reinitializing the webelement:
-        self.driver.get("https://www.demoblaze.com/")
+        self.driver.refresh()
         category_selector = "//div[@class='list-group']/a[text()='CATEGORY']".replace('CATEGORY', category)
         category_element = self.driver.find_element(By.XPATH, category_selector)
         category_element.click()
 
-    # step 2: Click on the product with the highest price on the page
-    #   expected result: product's page with {product_name} and {product_price} is open
     def click_on_the_highest_price_product(self):
         self.wait.until(ec.visibility_of_element_located(self.MONITOR_ELEMENT))
-        # gather products prices
         prices_list = [int(price_element.text.replace('$', ''))
                        for price_element in self.driver.find_elements(By.XPATH, self.PRICES_XPATH)]
         max_price = max(prices_list)
@@ -62,4 +57,3 @@ class HomePage:
 
         max_price_element = self.driver.find_element(By.XPATH, max_price_selector)
         max_price_element.click()
-
