@@ -42,7 +42,7 @@ class HomePage:
 
     def click_category(self, category):
         self.driver.refresh()
-        category_selector = "//div[@class='list-group']/a[text()='CATEGORY']".replace('CATEGORY', category)
+        category_selector = f"//div[@class='list-group']/a[text()='{category}']"
         category_element = self.driver.find_element(By.XPATH, category_selector)
         category_element.click()
 
