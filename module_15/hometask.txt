@@ -1,0 +1,24 @@
+Please, complete the following task.
+
+You will work with this endpoint - https://api.punkapi.com/v2/beers/8
+ Need to write 2 tests:
+
+ 1. Using requests method GET need to check that:
+ * status code - 200
+ * name - Fake Lager
+ * abv - 4.7
+
+ 2. Using requests method DELETE need to check that:
+ * status code - 404
+ * message - No endpoint found that matches '/v2/beers/8'
+
+ ### Dont forget about requests library
+
+ To install requests use this command - pip install requests
+ PSS: I would like to recommend to use page #15 from slides from this lecture;
+ small clue - correct using for 1st task will be - .json()[0]['your_key']
+
+ ### Review
+
+ Put me as reviewer please (@VAlexandrov911)
+
