@@ -13,10 +13,21 @@ LoginTest
     ClickLogInButton
     ValidateLoginAndPasswordFieldsArePresented
     LoginToApplication
-    checkLogOutButtonIsVisible
-    validateWelcomeMessageText  Welcome ${login}
+    CheckLogOutButtonIsVisible
+    ValidateWelcomeMessageText  Welcome ${login}
     close browser
 
+AddToCartTest
+    Open Browser    ${url}    ${browser}
+    ClickLogInButton
+    ValidateLoginAndPasswordFieldsArePresented
+    LoginToApplication
+#   step 1: Click on Monitors category
+#   step 2: Click on the product with the highest price on the page
+#   expected result: product's page with {product_name} and {product_price} is open
+#   step 3: Click on Add to cart button
+#   step 4: Click on Cart button
+#   expected result: product is successfully added to cart; {product_name} and {product_price} are presented
 
 *** Keywords ***
 ClickLogInButton
