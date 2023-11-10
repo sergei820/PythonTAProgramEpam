@@ -17,12 +17,13 @@ LoginTest
     ValidateWelcomeMessageText  Welcome ${login}
     close browser
 
+# make set up as precondition -> as a keyword -> test setup -> вынести в *** settings *** как отдельного теста
 AddToCartTest
     Open Browser    ${url}    ${browser}
     ClickLogInButton
     ValidateLoginAndPasswordFieldsArePresented
     LoginToApplication
-#   step 1: Click on Monitors category
+    ClickOnCategory     Monitors
 #   step 2: Click on the product with the highest price on the page
 #   expected result: product's page with {product_name} and {product_price} is open
 #   step 3: Click on Add to cart button
@@ -50,3 +51,8 @@ checkLogOutButtonIsVisible
 validateWelcomeMessageText
     [Arguments]     ${message}
     element should contain  id:nameofuser   ${message}
+
+ClickOnCategory
+    [Arguments]     ${category}
+    Wait Until Element Is Visible  xpath://div[@class='list-group']/a[text()='${category}']
+    click element  xpath://div[@class='list-group']/a[text()='Monitors']
