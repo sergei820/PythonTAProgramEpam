@@ -40,10 +40,8 @@ ClickOnCategory
     click element  xpath://div[@class='list-group']/a[text()='${category}']
 
 ClickOnTheProductWithTheHighestPrice
-    reload page
-#    Wait Until Element Is Visible   ${MONITOR_ELEMENT}
     Wait Until Page Contains Element    ${MONITOR_ELEMENT}
-    ${prices}=    Get WebElements    xpath=${PRICES_XPATH}
+    ${prices}=    Get WebElements    ${PRICES_XPATH}
     ${prices_list}=    Create List
 #    :FOR    ${price}    IN    @{prices}
 #    \    ${price_value}=    Evaluate    int("${price.text.replace('$', '')}")
