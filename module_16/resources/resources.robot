@@ -10,6 +10,8 @@ ${password}     1qa2ws3ed
 ${MONITOR_ELEMENT}    xpath=//*[contains(text(),'monitor')]
 ${PRICES_XPATH}    xpath=//*[contains(text(),'$')]
 ${PRODUCT_NAME}    xpath=//div[@id='tbodyid']/h2[@class='name']
+${PRODUCT_PRICE}    css=#tbodyid .price-container
+${ADD_TO_CART}  xpath=//div[@id='tbodyid']//a[contains(text(),'Add to cart')]
 
 *** Keywords ***
 ClickLogInButton
@@ -60,10 +62,10 @@ ValidateProductPageOpened
     [Arguments]     ${expected_name}     ${expected_price}
     wait until element is visible  ${PRODUCT_NAME}
     element text should be  ${PRODUCT_NAME}     ${expected_name}
-    # self.wait.until(ec.visibility_of_element_located(self.PRODUCT_NAME))
-    # product_name_actual = self.driver.find_element(*self.PRODUCT_NAME).text
-    # assert product_name_actual == product_name_expected
-    # product_price_actual = self.driver.find_element(*self.PRODUCT_PRICE).text
-    # assert product_price_expected in product_price_actual
+    element should contain   ${PRODUCT_PRICE}    ${expected_price}
+
+ClickOnAddToCartButton
+    click element  ${ADD_TO_CART}
+
 
 

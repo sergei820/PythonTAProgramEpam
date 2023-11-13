@@ -24,7 +24,7 @@ AddToCartTest
     ClickOnCategory     Monitors
     ClickOnTheProductWithTheHighestPrice
     ValidateProductPageOpened   Apple monitor 24  $400
-#   expected result: product's page with {product_name} and {product_price} is open
+    ClickOnAddToCartButton
 #   step 3: Click on Add to cart button
 #   step 4: Click on Cart button
 #   expected result: product is successfully added to cart; {product_name} and {product_price} are presented
