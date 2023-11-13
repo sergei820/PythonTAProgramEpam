@@ -1,5 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
+Library  Collections
 
 *** Variables ***
 ${browser}  chrome
@@ -8,6 +9,7 @@ ${login}    snowfallslow@gmail.com
 ${password}     1qa2ws3ed
 ${MONITOR_ELEMENT}    xpath=//*[contains(text(),'monitor')]
 ${PRICES_XPATH}    xpath=//*[contains(text(),'$')]
+${PRODUCT_NAME}    xpath=//div[@id='tbodyid']/h2[@class='name']
 
 *** Keywords ***
 ClickLogInButton
@@ -43,14 +45,25 @@ ClickOnTheProductWithTheHighestPrice
     Wait Until Page Contains Element    ${MONITOR_ELEMENT}
     ${prices}=    Get WebElements    ${PRICES_XPATH}
     ${prices_list}=    Create List
-#    :FOR    ${price}    IN    @{prices}
-#    \    ${price_value}=    Evaluate    int("${price.text.replace('$', '')}")
-#    \    Append To List    ${prices_list}    ${price_value}
-#    ${max_price}=    Set Variable    ${prices_list}[${prices_list.index(max(${prices_list}))}]
-#
-#    ${any_price_selector}=    Set Variable    //*[contains(text(),'$')]/preceding-sibling::*[@class='card-title']/a
-#    ${max_price_selector}=    Set Variable    ${any_price_selector.replace('$', '${max_price}')}
-#
-#    Click Element    xpath=${max_price_selector}
+    FOR    ${price}    IN    @{prices}
+        Append To List    ${prices_list}    ${price.text}
+    END
+    ${max_price}=    Set Variable    ${prices_list}[${prices_list.index(max(${prices_list}))}]
+
+    ${any_price_selector}=    Set Variable    //*[contains(text(),'$')]/preceding-sibling::*[@class='card-title']/a
+    ${max_price_selector}=    Set Variable    ${any_price_selector.replace('$', '${max_price}')}
+
+    Click Element    xpath=${max_price_selector}
+
+ValidateProductPageOpened
+    reload page
+    [Arguments]     ${expected_name}     ${expected_price}
+    wait until element is visible  ${PRODUCT_NAME}
+    element text should be  ${PRODUCT_NAME}     ${expected_name}
+    # self.wait.until(ec.visibility_of_element_located(self.PRODUCT_NAME))
+    # product_name_actual = self.driver.find_element(*self.PRODUCT_NAME).text
+    # assert product_name_actual == product_name_expected
+    # product_price_actual = self.driver.find_element(*self.PRODUCT_PRICE).text
+    # assert product_price_expected in product_price_actual
 
 
