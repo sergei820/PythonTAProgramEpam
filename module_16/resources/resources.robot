@@ -12,6 +12,7 @@ ${PRICES_XPATH}    xpath=//*[contains(text(),'$')]
 ${PRODUCT_NAME}    xpath=//div[@id='tbodyid']/h2[@class='name']
 ${PRODUCT_PRICE}    css=#tbodyid .price-container
 ${ADD_TO_CART}  xpath=//div[@id='tbodyid']//a[contains(text(),'Add to cart')]
+${CART_BUTTON}  xpath=//div[@class='navbar-collapse']//li/a[@id='cartur']
 
 *** Keywords ***
 ClickLogInButton
@@ -66,6 +67,9 @@ ValidateProductPageOpened
 
 ClickOnAddToCartButton
     click element  ${ADD_TO_CART}
+
+ClickOnCartButton
+    click element   ${CART_BUTTON}
 
 
 
