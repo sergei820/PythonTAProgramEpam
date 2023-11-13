@@ -1,26 +1,16 @@
 *** Settings ***
 Library  SeleniumLibrary
 Resource  ../resources/resources.robot
-
-
+Test Setup  Open Browser    ${url}    ${browser}
+Test Setup  LoginPreconditions
 
 *** Test Cases ***
 LoginTest
-    Open Browser    ${url}    ${browser}
-    ClickLogInButton
-    ValidateLoginAndPasswordFieldsArePresented
-    LoginToApplication
-    CheckLogOutButtonIsVisible
+    LoginPreconditions
     ValidateWelcomeMessageText  Welcome ${login}
     close browser
 
-# make set up as precondition -> as a keyword -> test setup -> вынести в *** settings *** как отдельного теста
 AddToCartTest
-    Open Browser    ${url}    ${browser}
-    ClickLogInButton
-    ValidateLoginAndPasswordFieldsArePresented
-    LoginToApplication
-    CheckLogOutButtonIsVisible
     ClickOnCategory     Monitors
     ClickOnTheProductWithTheHighestPrice
     ValidateProductPageOpened   Apple monitor 24  $400

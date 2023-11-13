@@ -24,6 +24,12 @@ ${PRODUCT_NAME_IN_CART}    css=#tbodyid td:nth-of-type(2)
 ${PRODUCT_PRICE_IN_CART}    css=#tbodyid td:nth-of-type(3)
 
 *** Keywords ***
+LoginPreconditions
+    ClickLogInButton
+    ValidateLoginAndPasswordFieldsArePresented
+    LoginToApplication
+    CheckLogOutButtonIsVisible
+
 ClickLogInButton
     Wait Until Element Is Visible  ${HOME_PAGE_LOGIN_BUTTON}
     click element    ${HOME_PAGE_LOGIN_BUTTON}
