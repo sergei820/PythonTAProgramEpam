@@ -26,5 +26,4 @@ AddToCartTest
     ValidateProductPageOpened   Apple monitor 24  $400
     ClickOnAddToCartButton
     ClickOnCartButton
-#   step 4: Click on Cart button
-#   expected result: product is successfully added to cart; {product_name} and {product_price} are presented
+    ValidateProductIsSuccessfullyAddedToCart       Apple monitor 24  400
