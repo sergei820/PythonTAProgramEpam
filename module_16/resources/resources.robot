@@ -25,6 +25,7 @@ ${PRODUCT_PRICE_IN_CART}    css=#tbodyid td:nth-of-type(3)
 
 *** Keywords ***
 LoginPreconditions
+    Open Browser    ${url}    ${browser}
     ClickLogInButton
     ValidateLoginAndPasswordFieldsArePresented
     LoginToApplication
