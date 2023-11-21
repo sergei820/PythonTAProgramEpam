@@ -14,4 +14,16 @@ Module 11 - no home-task
 Module 12 - no home-task
 Module 13 - done
 Module 14 - done
-Module 15 - implemented
+Module 15 - done
+Module 16 - done
+
+TO RUN ROBOTFRAMEWORK TESTS:
+
+    cd module_17
+    robot tests\demoblaze_test.robot
+
+TO RUN ROBOTFRAMEWORK SPECIFIC TEST:
+
+    cd module_17
+    robot -t "AddToCartTest" tests\demoblaze_test.robot
+
